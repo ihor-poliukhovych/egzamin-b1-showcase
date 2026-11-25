@@ -1,7 +1,7 @@
 {
   "name": "egzamin-b1-web",
   "private": true,
-  "license": "SEE LICENSE IN ../../LICENSE",
+  "license": "SEE LICENSE IN ../../LICENSE.md",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

@@ -1,6 +1,6 @@
 namespace B1.Domain.ErrorBank;
 
-/// <summary>Numeric spaced-repetition rules from koncepcja.md (section "Core data model").</summary>
+/// <summary>Numeric spaced-repetition rules of the error bank (see docs/architecture.md, "Error bank").</summary>
 public static class ReviewPolicy
 {
     /// <summary>This many falls make a pattern an active relapse.</summary>
