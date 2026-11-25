@@ -4,7 +4,9 @@ Preparation platform for the Polish state certificate exam at level B1, built fo
 speakers living in Poland. It runs the full mock exam in the real format, grades the written and spoken
 parts with AI against the exam board's criteria, and turns every mistake into spaced-repetition practice.
 
-**Live:** [egzamin-b1.pl](https://egzamin-b1.pl) (the landing page has a short demo video).
+**Live:** [egzamin-b1.pl](https://egzamin-b1.pl)
+
+https://github.com/user-attachments/assets/48c9458f-027c-4704-baa0-2c6b7a4c0559
 
 This repository is the product's source code. Exam content (exam sets, recordings and pictures) is **not**
 included; see [Exam content](#exam-content).
