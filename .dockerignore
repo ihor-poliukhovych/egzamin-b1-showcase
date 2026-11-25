@@ -1,0 +1,15 @@
+.git
+**/bin
+**/obj
+**/node_modules
+src/Web/dist
+content-local
+tests
+tools
+docs
+*.db
+*.db-shm
+*.db-wal
+appsettings.Local.json
+.vs
+.idea

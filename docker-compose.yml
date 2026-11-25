@@ -1,0 +1,44 @@
+# Local run: `docker compose up --build`, then open http://localhost:8080.
+# Starts PostgreSQL and the app (API + built front end in one container).
+# Dev login is on, Google sign-in is off. AI grading is off unless EGZAMINB1_Review__ApiKey is set in your shell
+# (then also set EGZAMINB1_Review__Provider=api).
+# Exam content is not part of this repository: put your own sets into ./content-local/arkusze and load them with
+#   docker compose run --rm app seed-arkusze --from /data/arkusze
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: b1
+      POSTGRES_USER: b1
+      POSTGRES_PASSWORD: b1 # local development only
+    ports:
+      - "5432:5432"
+    volumes:
+      - b1-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U b1 -d b1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Default: "Host=postgres;Port=5432;Database=b1;Username=b1;Password=b1"
+      Database__Provider: postgres
+      Database__MigrateOnStartup: "true"
+      Auth__DevLogin: "true"
+      Audio__LocalPath: /data
+      Review__Provider: ${EGZAMINB1_Review__Provider:-none}
+      EGZAMINB1_Review__ApiKey: ${EGZAMINB1_Review__ApiKey:-}
+    volumes:
+      - ./content-local:/data:ro
+
+volumes:
+  b1-pgdata:

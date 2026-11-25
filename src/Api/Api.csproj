@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>B1.Api</RootNamespace>
+    <AssemblyName>B1.Api</AssemblyName>
+    <UserSecretsId>4c868967-08b6-4d9c-ab9d-be0b5603e13c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.15" />
+  </ItemGroup>
+
+</Project>
